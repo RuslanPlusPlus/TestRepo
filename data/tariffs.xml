@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tariffs xmlns="http://www.example.com/tariffs">
+    <tariff operator="A1"  tariffication="minute tarrification" connectionPay="2" bonusInternet="10">
+        <name>Comfort M</name>
+        <payroll>21.73</payroll>
+        <prices>
+            <onNetCall>0</onNetCall>
+            <outNetCall>0.5</outNetCall>
+            <cityNetCall>0.104</cityNetCall>
+            <sms>0.078</sms>
+        </prices>
+    </tariff>
+    <tariff operator="A1" tariffication="12-second tarrification" connectionPay="0">
+        <name>Comfort S</name>
+        <payroll>13.83</payroll>
+        <prices>
+            <onNetCall>0</onNetCall>
+            <outNetCall>0.85</outNetCall>
+            <cityNetCall>0.104</cityNetCall>
+            <sms>0.078</sms>
+        </prices>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connectionPay="0" bonusInternet="90">
+        <name>Super Max 50</name>
+        <payroll>36.40</payroll>
+        <prices>
+            <onNetCall>0</onNetCall>
+            <outNetCall>0</outNetCall>
+            <cityNetCall>0</cityNetCall>
+            <sms>0.078</sms>
+        </prices>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connectionPay="3">
+        <name>Super Go</name>
+        <payroll>8.84</payroll>
+        <prices>
+            <onNetCall>0.052</onNetCall>
+            <outNetCall>0.1248</outNetCall>
+            <cityNetCall>0.1248</cityNetCall>
+            <sms>0.078</sms>
+        </prices>
+    </tariff>
+</tariffs>

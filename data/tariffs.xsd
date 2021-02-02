@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/tariffs"
+        xmlns:tns="http://www.example.com/tariffs"
+        elementFormDefault="qualified">
+    <element name="tariffs">
+        <complexType>
+            <sequence>
+                <element name="tariff" type="tns:Tariff" minOccurs="1" maxOccurs="unbounded"></element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Tariff">
+        <sequence>
+            <element name="name" type="string"></element>
+            <element name="payroll">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="0"/>
+                        <maxInclusive value="200"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="prices" type="tns:Prices"></element>
+        </sequence>
+        <attribute name="operator" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="mts"></enumeration>
+                    <enumeration value="A1"></enumeration>
+                    <enumeration value="life"></enumeration>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="tariffication" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="minute tarrification"></enumeration>
+                    <enumeration value="12-second tarrification"></enumeration>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="connectionPay" use="required">
+            <simpleType>
+                <restriction base="float">
+                    <minInclusive value="0"/>
+                    <maxInclusive value="20"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+
+        <attribute name="bonusInternet" use="optional">
+            <simpleType>
+                <restriction base="float">
+                    <minInclusive value="1"/>
+                    <maxInclusive value="100"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+    <complexType name="Prices">
+        <sequence>
+            <element name="onNetCall">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="0"/>
+                        <maxInclusive value="5"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="outNetCall">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="0"/>
+                        <maxInclusive value="5"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="cityNetCall">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="0"/>
+                        <maxInclusive value="5"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="sms">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="0"/>
+                        <maxInclusive value="5"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+</schema>
