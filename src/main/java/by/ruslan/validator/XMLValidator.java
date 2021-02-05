@@ -18,19 +18,22 @@ public class XMLValidator {
 
     static final Logger logger = LogManager.getLogger();
 
-    public static boolean isValid(String fileName, String schemaName){
+    public static boolean isXmlValid(String fileName, String schemaName){
+        boolean result = false;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory schemaFactory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
         try {
+            //add sax parser
             Schema schema = schemaFactory.newSchema(schemaLocation);
             Validator validator = schema.newValidator();
             Source source = new StreamSource(fileName);
             validator.setErrorHandler(new TariffErrorHandler());
             validator.validate(source);
-            return true;
+            result = true;
         } catch (SAXException | IOException e) {
-            return false;
+            logger.error(e.getMessage());
         }
+        return result;
     }
 }

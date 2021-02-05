@@ -1,4 +1,4 @@
-package by.ruslan.parser;
+package by.ruslan.builder;
 
 import by.ruslan.entity.Tariff;
 
@@ -9,6 +9,10 @@ public abstract class AbstractTariffsBuilder {
     protected Set<Tariff> tariffs;
     public AbstractTariffsBuilder(){
         this.tariffs = new HashSet<>();
+    }
+
+    public AbstractTariffsBuilder(Set<Tariff> tariffs){
+        this.tariffs = tariffs;
     }
 
     public Set<Tariff> getTariffs() {

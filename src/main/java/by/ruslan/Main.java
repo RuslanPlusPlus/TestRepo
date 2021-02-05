@@ -1,18 +1,28 @@
 package by.ruslan;
 
+import by.ruslan.builder.TariffsSaxBuilder;
 import by.ruslan.entity.Tariff;
 import by.ruslan.exception.ParserException;
-import by.ruslan.parser.TariffsBuilderFactory;
-import by.ruslan.parser.TariffsDomBuilder;
+import by.ruslan.factory.TariffsBuilderFactory;
+import by.ruslan.builder.TariffsDomBuilder;
+import by.ruslan.parser.LocalDateParser;
 import by.ruslan.validator.XMLValidator;
+
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(XMLValidator.isValid("data/tariffs.xml", "data/tariffs.xsd"));
+        /*if (XMLValidator.isXmlValid("data/tariffs.xml", "data/tariffs.xsd")){
+            TariffsSaxBuilder saxBuilder = (TariffsSaxBuilder) TariffsBuilderFactory.createTariffBuilder("sax");
+            saxBuilder.buildSetTariffs("data/tariffs.xml");
+            Set<Tariff> tariffSet = saxBuilder.getTariffs();
+            for (Tariff tariff: tariffSet){
+                System.out.println(tariff);
+            }
+        }*/
+
         try {
-            TariffsDomBuilder builder = (TariffsDomBuilder) TariffsBuilderFactory.createTariffBuilder("dom");
-            builder.buildSetTariffs("data/tariffs.xml");
-            System.out.println(builder.getTariffs());
+            System.out.println(LocalDateParser.parseStringToDate("2015-10-30"));
         } catch (ParserException e) {
             e.printStackTrace();
         }

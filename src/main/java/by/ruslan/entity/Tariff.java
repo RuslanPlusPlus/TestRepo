@@ -1,5 +1,7 @@
 package by.ruslan.entity;
 
+import java.time.LocalDate;
+
 public class Tariff {
     private String name;
     private float payroll;
@@ -7,16 +9,40 @@ public class Tariff {
     private String tariffication;
     private Prices prices = new Prices();
     private float connectionPay;
+    private float bonusInternet = 0;
+    private LocalDate date;
 
     public Tariff(){}
-    //create builder for Tariff
+
     public Tariff(String name, float payroll, String operator, String tariffication, float connectionPay,
-                    Prices prices){
+                    Prices prices, float bonusInternet, LocalDate date){
         this.name = name;
         this.payroll = payroll;
         this.operator = operator;
         this.connectionPay = connectionPay;
+        this.bonusInternet = bonusInternet;
         this.prices = prices;
+        this.date = date;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public float getPayroll() {
+        return payroll;
+    }
+
+    public float getBonusInternet() {
+        return bonusInternet;
+    }
+
+    public void setBonusInternet(float bonusInternet) {
+        this.bonusInternet = bonusInternet;
     }
 
     public String getName() {
@@ -65,14 +91,19 @@ public class Tariff {
 
     @Override
     public String toString() {
-        return "Tariff{" +
-                "name='" + name + '\'' +
-                ", payroll=" + payroll +
-                ", operator='" + operator + '\'' +
-                ", tariffication='" + tariffication + '\'' +
-                ", prices=" + prices +
-                ", connectionPay=" + connectionPay +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("Tariff{ ")
+                .append("name= ").append(name).append('\'')
+                .append(", payroll= ").append(payroll).append('\'')
+                .append(", operator= ").append(operator).append('\'')
+                .append(", tariffication= ").append(tariffication).append('\'')
+                .append(", connection pay= ").append(connectionPay).append('\'')
+                .append(", bonus internet= ").append(bonusInternet).append('\'')
+                .append(", prices= ").append(prices.toString()).append('\'')
+                .append('}');
+        return new String(builder);
+
+        //equal
     }
 
     public class Prices{
@@ -121,6 +152,18 @@ public class Tariff {
 
         public void setSmsPrice(float smsPrice) {
             this.smsPrice = smsPrice;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("Prices{ ")
+                    .append("onNetPrice= ").append(onNetPrice)
+                    .append(", outNetPrice= ").append(outNetPrice)
+                    .append(", cityNetPrice= ").append(cityNetPrice)
+                    .append(", smsPrice= ").append(smsPrice)
+                    .append('}');
+            return new String(builder);
         }
     }
 }
