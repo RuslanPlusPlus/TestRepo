@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.example.com/tariffs"
-        xmlns:tns="http://www.example.com/tariffs"
+        targetNamespace="http://www.example.com/testTariffs"
+        xmlns:tns="http://www.example.com/testTariffs"
         elementFormDefault="qualified">
     <element name="tariffs">
         <complexType>
             <sequence>
-                <element name="tariff" type="tns:Tariff" minOccurs="16" maxOccurs="unbounded"></element>
+                <element name="tariff" type="tns:Tariff" minOccurs="1" maxOccurs="unbounded"></element>
             </sequence>
         </complexType>
     </element>
