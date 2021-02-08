@@ -67,7 +67,7 @@ public class TariffsSaxHandler extends DefaultHandler {
 
     @Override
     public void characters(char[] ch, int start, int length){
-        String data = new String(ch, start, length).trim();
+        String data = new String(ch, start, length).trim(); //replace trim by strip()
         if (currentTag != null){
             switch (currentTag){
                 case NAME: {
