@@ -33,11 +33,13 @@ public class TariffsSaxBuilder extends AbstractTariffsBuilder{
     }
 
     @Override
-    public void buildSetTariffs(String fileName) {
+    public void buildSetTariffs(String fileName) throws ParserException {
         try {
-            xmlReader.parse(fileName);
+            String absolutePath = getAbsolutePath(fileName);
+            xmlReader.parse(absolutePath);
         } catch (IOException | SAXException e) {
             logger.error(e.getMessage());
+            throw new ParserException(e);
         }
         tariffs = saxHandler.getTariffs();
     }

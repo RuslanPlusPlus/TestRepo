@@ -1,6 +1,7 @@
 package by.ruslan.xml_parser.builder;
 
 import by.ruslan.xml_parser.entity.Tariff;
+import by.ruslan.xml_parser.exception.ParserException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -41,10 +42,11 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
     }
 
     @Override
-    public void buildSetTariffs(String fileName){
+    public void buildSetTariffs(String fileName) throws ParserException {
         Document doc;
         try {
-            doc = documentBuilder.parse(fileName);
+            String absolutePath = getAbsolutePath(fileName);
+            doc = documentBuilder.parse(absolutePath);
             Element root = doc.getDocumentElement();
             NodeList studentsList = root.getElementsByTagName(TariffsXmlTagType.TARIFF.getValue());
             for (int i = 0; i < studentsList.getLength(); i++) {
@@ -54,6 +56,7 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
             }
         } catch (IOException | SAXException e) {
             logger.error(e.getMessage());
+            throw new ParserException(e);
         }
     }
 
@@ -78,7 +81,6 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
             }
             tariff.setPayroll(payroll);
             String dateString = getElementTextContent(element, TariffsXmlTagType.RELEASE_DATE.getValue());
-            //check date format
             LocalDate date = LocalDate.parse(dateString);
             tariff.setReleaseDate(date);
             Tariff.PriceList priceList = buildPriceList(element, tariff);
@@ -108,7 +110,7 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
             priceList.setCityNetPrice(cityNetPrice);
             priceList.setSmsPrice(smsPrice);
         }else {
-            logger.warn("Null passed to buildTariff method. Impossible to build object");
+            logger.warn("Null passed to buildTariff method. Tariff object is not filled");
         }
         return priceList;
     }

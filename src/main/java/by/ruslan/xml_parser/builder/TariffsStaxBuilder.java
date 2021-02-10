@@ -1,6 +1,7 @@
 package by.ruslan.xml_parser.builder;
 
 import by.ruslan.xml_parser.entity.Tariff;
+import by.ruslan.xml_parser.exception.ParserException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,10 +29,11 @@ public class TariffsStaxBuilder extends AbstractTariffsBuilder{
     }
 
     @Override
-    public void buildSetTariffs(String fileName) {
+    public void buildSetTariffs(String fileName) throws ParserException {
+        String absolutePath = getAbsolutePath(fileName);
         XMLStreamReader reader;
         String tagName;
-        try(FileInputStream inputStream = new FileInputStream(new File(fileName))) {
+        try(FileInputStream inputStream = new FileInputStream(new File(absolutePath))) {
             reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()){
                 int type = reader.next();
@@ -45,6 +47,7 @@ public class TariffsStaxBuilder extends AbstractTariffsBuilder{
             }
         } catch (IOException | XMLStreamException e) {
             logger.error(e.getMessage());
+            throw new ParserException(e);
         }
     }
 
@@ -146,7 +149,7 @@ public class TariffsStaxBuilder extends AbstractTariffsBuilder{
     }
 
     private String getXmlText(XMLStreamReader reader) throws XMLStreamException {
-        String text = null;
+        String text = "";
         if (reader.hasNext()){
             reader.next();
             text = reader.getText();

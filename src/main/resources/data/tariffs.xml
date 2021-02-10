@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tariffs xmlns="http://www.example.com/tariffs">
+    <tariff operator="A1"  tariffication="minute tarrification" connection-pay="2" bonus-internet="10">
+        <name>Comfort M</name>
+        <payroll>21.73</payroll>
+        <release-date>2018-05-23</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.5</out-net-call>
+            <city-net-call>0.104</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="A1" tariffication="12-second tarrification" connection-pay="0">
+        <name>Comfort S</name>
+        <payroll>13.83</payroll>
+        <release-date>2019-12-08</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.85</out-net-call>
+            <city-net-call>0.104</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="0" bonus-internet="90">
+        <name>Super Max 50</name>
+        <payroll>36.40</payroll>
+        <release-date>2019-10-24</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="3">
+        <name>Super Go</name>
+        <payroll>8.84</payroll>
+        <release-date>2020-07-15</release-date>
+        <price-list>
+            <on-net-call>0.052</on-net-call>
+            <out-net-call>0.1248</out-net-call>
+            <city-net-call>0.1248</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="life" tariffication="12-second tarrification" connection-pay="0">
+        <name>Sheik</name>
+        <payroll>8</payroll>
+        <release-date>2019-06-18</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.15</out-net-call>
+            <city-net-call>0.15</city-net-call>
+            <sms>0.07</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="life" tariffication="12-second tarrification" connection-pay="0">
+        <name>Sheik mini</name>
+        <payroll>6</payroll>
+        <release-date>2020-01-17</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.20</out-net-call>
+            <city-net-call>0.20</city-net-call>
+            <sms>0.15</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="5" bonus-internet="20">
+        <name>Super 10</name>
+        <payroll>21.30</payroll>
+        <release-date>2018-05-16</release-date>
+        <price-list>
+            <on-net-call>0.0468</on-net-call>
+            <out-net-call>0.098</out-net-call>
+            <city-net-call>0.098</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="5" bonus-internet="100">
+        <name>ULTRA</name>
+        <payroll>55.09</payroll>
+        <release-date>2019-12-05</release-date>
+        <price-list>
+            <on-net-call>0.024</on-net-call>
+            <out-net-call>0.095</out-net-call>
+            <city-net-call>0.095</city-net-call>
+            <sms>0.048</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="0" bonus-internet="50">
+        <name>Super 25</name>
+        <payroll>30.60</payroll>
+        <release-date>2020-11-08</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0.045</city-net-call>
+            <sms>0</sms>
+        </price-list>
+    </tariff>
+    
+    
+    
+    
+    <tariff operator="A1" tariffication="minute tarrification" connection-pay="0">
+        <name>Start</name>
+        <payroll>34.78</payroll>
+        <release-date>2019-07-10</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0.074</city-net-call>
+            <sms>0.05</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="A1" tariffication="minute tarrification" connection-pay="0" bonus-internet="90">
+        <name>Comfort XL</name>
+        <payroll>41.90</payroll>
+        <release-date>2018-11-10</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0.05</city-net-call>
+            <sms>0</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="A1" tariffication="12-second tarrification" connection-pay="5">
+        <name>Comfort XM</name>
+        <payroll>34.89</payroll>
+        <release-date>2020-03-11</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.05</out-net-call>
+            <city-net-call>0.095</city-net-call>
+            <sms>0.05</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="A1" tariffication="minute tarrification" connection-pay="10" bonus-internet="200">
+        <name>Unlimited</name>
+        <payroll>45</payroll>
+        <release-date>2019-11-15</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0</city-net-call>
+            <sms>0</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="0" bonus-internet="150">
+        <name>Unlimited+</name>
+        <payroll>50</payroll>
+        <release-date>2018-07-10</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0</out-net-call>
+            <city-net-call>0</city-net-call>
+            <sms>0</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="0">
+        <name>Super</name>
+        <payroll>24.78</payroll>
+        <release-date>2019-08-17</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.03</out-net-call>
+            <city-net-call>0.15</city-net-call>
+            <sms>0.10</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="mts" tariffication="minute tarrification" connection-pay="0">
+        <name>Lite</name>
+        <payroll>20.05</payroll>
+        <release-date>2019-12-05</release-date>
+        <price-list>
+            <on-net-call>0.02</on-net-call>
+            <out-net-call>0.10</out-net-call>
+            <city-net-call>0.23</city-net-call>
+            <sms>0.10</sms>
+        </price-list>
+    </tariff>
+</tariffs>

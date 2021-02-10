@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tariffs xmlns="http://www.example.com/testTariffs">
+    <tariff operator="A1"  tariffication="minute tarrification" connection-pay="2" bonus-internet="10">
+        <name>Comfort M</name>
+        <payroll>21.73</payroll>
+        <release-date>2018-05-23</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.5</out-net-call>
+            <city-net-call>0.104</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+    <tariff operator="A1" tariffication="12-second tarrification" connection-pay="0">
+        <name>Comfort S</name>
+        <payroll>13.83</payroll>
+        <release-date>2019-12-08</release-date>
+        <price-list>
+            <on-net-call>0</on-net-call>
+            <out-net-call>0.85</out-net-call>
+            <city-net-call>0.104</city-net-call>
+            <sms>0.078</sms>
+        </price-list>
+    </tariff>
+</tariffs>

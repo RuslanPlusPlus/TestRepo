@@ -1,5 +1,6 @@
 package by.ruslan.xml_parser.validator;
 
+import by.ruslan.xml_parser.exception.ParserException;
 import by.ruslan.xml_parser.handler.TariffErrorHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,12 +23,20 @@ public class XMLValidator {
         boolean result = false;
         String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         SchemaFactory schemaFactory = SchemaFactory.newInstance(language);
-        File schemaLocation = new File(schemaName);
+        String filePath;
+        String schemaPath;
         try {
-            //add sax parser
+            filePath = getAbsolutePath(fileName);
+            schemaPath = getAbsolutePath(schemaName);
+        } catch (ParserException e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+        File schemaLocation = new File(schemaPath);
+        try {
             Schema schema = schemaFactory.newSchema(schemaLocation);
             Validator validator = schema.newValidator();
-            Source source = new StreamSource(fileName);
+            Source source = new StreamSource(filePath);
             validator.setErrorHandler(new TariffErrorHandler());
             validator.validate(source);
             result = true;
@@ -35,5 +44,17 @@ public class XMLValidator {
             logger.error(e.getMessage());
         }
         return result;
+    }
+
+    private static String getAbsolutePath(String fileName) throws ParserException {
+        ClassLoader classLoader = XMLValidator.class.getClassLoader();
+        if (classLoader == null){
+            throw new ParserException("Cannot load file " + fileName);
+        }
+        if (classLoader.getResource(fileName) == null){
+            throw new ParserException("Cannot load file " + fileName);
+        }
+        File file = new File(classLoader.getResource(fileName).getFile());
+        return file.getAbsolutePath();
     }
 }

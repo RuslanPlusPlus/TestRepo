@@ -1,12 +1,11 @@
 package by.ruslan.xml_parser.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Tariff {
     private String name;
     private float payroll;
-    private String operator; //remake to enum
+    private String operator;
     private String tariffication;
     private PriceList priceList = new PriceList();
     private float connectionPay;

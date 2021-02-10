@@ -1,6 +1,7 @@
 package by.ruslan.xml_parser.builder;
 
 import by.ruslan.xml_parser.entity.Tariff;
+import by.ruslan.xml_parser.exception.ParserException;
 import by.ruslan.xml_parser.factory.TariffsBuilderFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -63,7 +64,7 @@ public class TariffsStaxBuilderTest {
     }
 
     @Test
-    public void testBuildSetTariffs() {
+    public void testBuildSetTariffs() throws ParserException {
         staxBuilder.buildSetTariffs(fileName);
         Set<Tariff> actualSet = staxBuilder.getTariffs();
         assertEquals(actualSet, expectedSet);

@@ -80,7 +80,6 @@ public class TariffsSaxHandler extends DefaultHandler {
                     break;
                 }
                 case RELEASE_DATE:{
-                    //check date format
                     LocalDate date = LocalDate.parse(data);
                     currentTariff.setReleaseDate(date);
                     break;
