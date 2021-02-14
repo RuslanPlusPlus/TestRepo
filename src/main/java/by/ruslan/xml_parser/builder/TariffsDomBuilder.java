@@ -87,7 +87,7 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
             tariff.setPriceList(priceList);
             logger.info("Tariff object is successfully built");
         }else {
-            logger.warn("Null passed to buildTariff method. Impossible to build object");
+            logger.warn("Null passed to buildTariff method. Impossible to fill object");
         }
         return tariff;
     }
@@ -110,7 +110,7 @@ public class TariffsDomBuilder extends AbstractTariffsBuilder{
             priceList.setCityNetPrice(cityNetPrice);
             priceList.setSmsPrice(smsPrice);
         }else {
-            logger.warn("Null passed to buildTariff method. Tariff object is not filled");
+            logger.warn("Null passed to buildTariff method. Impossible to fill object");
         }
         return priceList;
     }
